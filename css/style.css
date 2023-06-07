@@ -51,9 +51,15 @@ select{
     
     width: 600px;
     height: 600px;
-    border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
+}
+
+.container div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 .easy{
@@ -72,6 +78,10 @@ select{
     border: 1px solid red;
     flex-basis: calc(100% / 7);
     height: calc(100% / 7);
+}
+
+.b-gblue{
+    background-color: blue;
 }
 
 .d-flex{
