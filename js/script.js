@@ -21,7 +21,7 @@ let total = row * cols;
 console.log(total);
 let gameSelect = 'easy';
 let cells;
-
+let i = 1;
 
 
 buttonElement.addEventListener('click' , function(){
@@ -36,8 +36,9 @@ buttonElement.addEventListener('click' , function(){
         gameSelect = 'hard';
     }
     
-    for(let i = 1; i <= total; i++){
+    while(i <= total){
         cells = createcell(gameSelect , i);
+        i++;
         cells.addEventListener('click' , () => {
             cells.classList.add('b-gblue');
             console.log(cells[i]);
