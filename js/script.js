@@ -7,48 +7,60 @@ const buttonElement = document.getElementById('button');
 const deleteElement = document.getElementById('delete');
 const containerElement = document.querySelector('.container');
 
-//creo una funzione che generi delle celle
-function createcell(a , b){
+//creo una funzione che generi delle celle aventi una classe e del contenuto
+function createcell(className , cellText){
     const cell = document.createElement('div')
-    cell.classList.add(a);
-    cell.innerText = b;
+    cell.classList.add(className);
+    cell.innerText = cellText;
     return cell;
 }
 
-const row = 10;
-const cols = 10;
-let total = row * cols;
-console.log(total);
-let gameSelect = 'easy';
-let cells;
-let i = 1;
-
-
+//metto in ascolto il bottone
 buttonElement.addEventListener('click' , function(){
+
+    //creo delle variabili d'appoggio
+    const row = 10;
+    const cols = 10;
+    let total = row * cols;
+    let gameSelect = 'easy';
+
+    // al click svuoto il container
+    containerElement.innerHTML = '';
+
     //recupero valore select
     let userChoice = parseInt(selectElement.value);
-    console.log(userChoice);
+
+    //controllo il valore della select e modifico i parametri in base al valoro
     if(userChoice === 2){
+
         total = (row * cols) - 19;
         gameSelect = 'medium';
+
     } else if (userChoice === 3){
+
         total = (row * cols) - 51;
         gameSelect = 'hard';
+
     }
     
-    while(i <= total){
-        cells = createcell(gameSelect , i);
-        i++;
-        cells.addEventListener('click' , () => {
-            cells.classList.add('b-gblue');
-            console.log(cells[i]);
+    //creo un ciclo
+    for(let i = 1; i <= total;  i++){
+
+        //genero le celle 
+        const cell = createcell(gameSelect , i);
+      
+        //metto in ascolto le celle
+        cell.addEventListener('click' , () => {
+
+            //al click aggiungo la classe ed effettuo un controllo
+            cell.classList.add('b-gblue');
+            console.log(i);
         });
-        containerElement.appendChild(cells);
+
+        //stampo gli elementi in pagina
+        containerElement.appendChild(cell);
 
     }
-    
-
-    
 });
 
 
