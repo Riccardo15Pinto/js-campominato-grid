@@ -12,3 +12,7 @@ function createcell(a){
     cell.className = a;
     return cell;
 }
+
+//recupero valore select
+let userChoice = parseInt(selectElement.value);
+console.log(userChoice);
